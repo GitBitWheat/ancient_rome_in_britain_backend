@@ -18,6 +18,6 @@ With the following routes, you can read all items (GET), add an item (POST + JWT
 You can manage file uploads with the following routes:
 <ul>
   <li>GET /files/images/:imageName</li>
-  <li>DELETE /files/images/:imageName</li>
-  <li>POST /files/images</li>
+  <li>DELETE /files/images/:imageName (JWT authorization)</li>
+  <li>POST /files/images (JWT authorization)</li>
 </ul>
