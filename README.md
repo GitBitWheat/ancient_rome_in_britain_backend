@@ -24,6 +24,6 @@ You can manage file uploads with the following routes:
 
 JWT authorization is done through the following requests:
 <ul>
-  <li>POST /auth/signup</li>
+  <li>PUT /auth/signup</li>
   <li>POST /auth/login</li>
 </ul>
