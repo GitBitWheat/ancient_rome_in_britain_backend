@@ -21,3 +21,9 @@ You can manage file uploads with the following routes:
   <li>DELETE /files/images/:imageName (JWT authorization)</li>
   <li>POST /files/images (JWT authorization)</li>
 </ul>
+
+JWT authorization is done through the following requests:
+<ul>
+  <li>POST /auth/signup</li>
+  <li>POST /auth/login</li>
+</ul>
