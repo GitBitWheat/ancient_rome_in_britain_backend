@@ -1,6 +1,10 @@
+version: '3'
 networks:
   backnet:  
     name: backnet
+volumes:
+  mongodb_data:
+
 services:
   db:
     image: db:latest
@@ -9,6 +13,9 @@ services:
     build: ./db
     networks:
       - backnet
+    volumes:
+      - mongodb_data:/data/db
+
   backend:
     image: backend:latest
     container_name: backend
@@ -18,6 +25,7 @@ services:
       - db
     networks:
       - backnet
+
   frontend:
     image: frontend:latest
     container_name: frontend
@@ -25,6 +33,7 @@ services:
     build: ../ancient_rome_in_britain_frontend
     networks:
       - backnet
+
   proxy:
     image: proxy:latest
     container_name: proxy
