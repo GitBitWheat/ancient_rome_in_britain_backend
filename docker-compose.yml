@@ -1,0 +1,39 @@
+networks:
+  backnet:  
+    name: backnet
+services:
+  db:
+    image: db:latest
+    container_name: db
+    restart: always
+    build: ./db
+    networks:
+      - backnet
+  backend:
+    image: backend:latest
+    container_name: backend
+    restart: always
+    build: .
+    depends_on:
+      - db
+    networks:
+      - backnet
+  frontend:
+    image: frontend:latest
+    container_name: frontend
+    restart: always
+    build: ../ancient_rome_in_britain_frontend
+    networks:
+      - backnet
+  proxy:
+    image: proxy:latest
+    container_name: proxy
+    restart: always
+    build: ./proxy
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - backnet
+    ports:
+      - "80:80"
