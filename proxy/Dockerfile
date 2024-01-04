@@ -1,4 +1,6 @@
 FROM nginx
 COPY nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80
+COPY fullchain.pem /etc/nginx/ssl/fullchain.pem
+COPY privkey.pem /etc/nginx/ssl/privkey.pem
+EXPOSE 443
 CMD ["nginx", "-g", "daemon off;"]

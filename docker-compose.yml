@@ -45,4 +45,4 @@ services:
     networks:
       - backnet
     ports:
-      - "80:80"
+      - "443:443"
