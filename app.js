@@ -14,7 +14,18 @@ const app = express();
 
 app.use(bodyParser.json()); // application/json
 
-app.use(cors());
+const allowedOrigins = ['https://ancientromeinbritain.com'];
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+}));
 
 app.use('/feed', feedRoutes);
 app.use('/feed', audioRoutes);
