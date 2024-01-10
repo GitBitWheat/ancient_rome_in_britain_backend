@@ -4,16 +4,16 @@ The repository doesn't stand on its own - All files should be in a directory nam
 
 Make sure both directories are in the same parent directory and with the correct names.
 
-The project can run on a linux machine with docker and docker-compose. The script <br>install.sh</br> installs all needed dependencies for an ubuntu machine.
+The project can run on a linux machine with docker and docker-compose. The script **install.sh** installs all needed dependencies for an ubuntu machine.
 
 # Build and Run
 
 Done via docker-compose. 3 scripts are included that contain the docker-compose commands with the required flags:
 
 <ul>
-  <li>compose_build.sh: Build container images.</li>
-  <li>compose_up.sh: Runs container images.</li>
-  <li>compose_down.sh: Stops container images.</li>
+  <li>**compose_build.sh:** Build container images.</li>
+  <li>**compose_up.sh:** Runs container images.</li>
+  <li>**compose_down.sh:** Stops container images.</li>
 </ul>
 
 # Description of the Containers
@@ -21,10 +21,10 @@ Done via docker-compose. 3 scripts are included that contain the docker-compose 
 There a 4 docker containers:
 
 <ul>
-  <li>proxy: The API gateway of the site. An nginx proxy.</li>
-  <li>backend: The node server (express.js) which handles database queries.</li>
-  <li>db: MongoDB database.</li>
-  <li>frontend: A server that sends static HTML, which is the result of the build process of the frontend. The web server used is nginx.</li>
+  <li>**proxy:** The API gateway of the site. An nginx proxy.</li>
+  <li>**backend:** The node server (express.js) which handles database queries.</li>
+  <li>**db:** MongoDB database.</li>
+  <li>**frontend:** A server that serves static HTML, which is the result of the build process of the frontend. The web server used is nginx.</li>
 </ul>
 
 All the containers share the same docker network. The only port that is exposed to the host is 443 of proxy, which is mapped to 443 of the host.
