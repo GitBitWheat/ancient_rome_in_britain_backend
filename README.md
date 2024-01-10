@@ -14,6 +14,8 @@ Done via docker-compose. 3 scripts are included that contain the docker-compose 
 - **compose_up.sh:** Runs containers.
 - **compose_down.sh:** Stops containers.
 
+Note the the build will fail unless the SSL certificate and key are included in the **proxy** directory, with the names **fullchain.pem** and **privkey.pem** respectively. They are not included in this repository for security reasons, so make sure to securely copy them.
+
 # Description of the Containers
 
 There a 4 docker containers:
