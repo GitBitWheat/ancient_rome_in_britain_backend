@@ -10,22 +10,18 @@ The project can run on a linux machine with docker and docker-compose. The scrip
 
 Done via docker-compose. 3 scripts are included that contain the docker-compose commands with the required flags:
 
-<ul>
-  <li>**compose_build.sh:** Build container images.</li>
-  <li>**compose_up.sh:** Runs container images.</li>
-  <li>**compose_down.sh:** Stops container images.</li>
-</ul>
+- **compose_build.sh:** Build container images.
+- **compose_up.sh:** Runs container images.
+- **compose_down.sh:** Stops container images.
 
 # Description of the Containers
 
 There a 4 docker containers:
 
-<ul>
-  <li>**proxy:** The API gateway of the site. An nginx proxy.</li>
-  <li>**backend:** The node server (express.js) which handles database queries.</li>
-  <li>**db:** MongoDB database.</li>
-  <li>**frontend:** A server that serves static HTML, which is the result of the build process of the frontend. The web server used is nginx.</li>
-</ul>
+- **proxy:** The API gateway of the site. An nginx proxy.
+- **backend:** The node server (express.js) which handles database queries.
+- **db:** MongoDB database.
+- **frontend:** A server that serves static HTML, which is the result of the build process of the frontend. The web server used is nginx.
 
 All the containers share the same docker network. The only port that is exposed to the host is 443 of proxy, which is mapped to 443 of the host.
 
@@ -33,28 +29,27 @@ All the containers share the same docker network. The only port that is exposed 
 Here is the gist of the API of the backend server. Notice the nginx proxy maps routes that start with /actions/ to the backend server.
 
 With the following routes, you can read all items (GET), add an item (POST + JWT authorization), edit (PUT + JWT authorization) and delete (DELETE + JWT authorization):
-<ul>
-  <li>/feed/book</li>
-  <li>/feed/website</li>
-  <li>/feed/audiovisual</li>
-  <li>/feed/recreational</li>
-  <li>/lists/tag</li>
-  <li>/lists/agegroup</li>
-  <li>/lists/genre</li>
-  <li>/lists/websitetype</li>
-  <li>/lists/audiovisualtype</li>
-  <li>/lists/recreationaltype</li>
-</ul>
+
+- /feed/book
+- /feed/website
+- /feed/audiovisual
+- /feed/recreational
+- /lists/tag
+- /lists/agegroup
+- /lists/genre
+- /lists/websitetype
+- /lists/audiovisualtype
+- /lists/recreationaltype
 
 You can manage file uploads with the following routes:
-<ul>
-  <li>GET /files/images/:imageName</li>
-  <li>DELETE /files/images/:imageName (JWT authorization)</li>
-  <li>POST /files/images (JWT authorization)</li>
-</ul>
+
+- GET /files/images/:imageName
+- DELETE /files/images/:imageName (JWT authorization)
+- POST /files/images (JWT authorization)
 
 JWT authorization is done through the following requests:
-<ul>
-  <li>PUT /auth/signup</li>
-  <li>POST /auth/login</li>
-</ul>
+
+- PUT /auth/signup
+- POST /auth/login
+
+Note the CORS policy only allows requests from the domain "ancientromeinbritain.com"
