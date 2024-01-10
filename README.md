@@ -10,7 +10,7 @@ The project can run on a linux machine with docker and docker-compose. The scrip
 
 Done via docker-compose. 3 scripts are included that contain the docker-compose commands with the required flags:
 
-- **compose_build.sh:** Build container images.
+- **compose_build.sh:** Builds container images.
 - **compose_up.sh:** Runs container images.
 - **compose_down.sh:** Stops container images.
 
