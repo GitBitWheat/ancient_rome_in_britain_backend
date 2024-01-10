@@ -6,7 +6,7 @@ COPY controllers /app/controllers
 COPY routes /app/routes
 COPY middleware /app/middleware
 COPY models /app/models
-COPY util /app/util
+COPY images /app/images
 COPY app.js /app
 EXPOSE 8080
 CMD ["node", "app.js"]

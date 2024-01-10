@@ -1,4 +1,5 @@
 const express = require('express');
+const winston = require('winston');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const feedRoutes = require('./routes/books');
@@ -11,6 +12,23 @@ const listsRoutes = require('./routes/lists');
 
 const mongoose = require('mongoose');
 const app = express();
+
+const logger = winston.createLogger({
+    // Log only if level is less than (meaning more severe) or equal to this
+    level: "info",
+    // Use timestamp and printf to create a standard log format
+    format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.printf(
+            info => `${info.timestamp} ${info.level}: ${info.message}`
+        )
+    ),
+    // Log to the console and a file
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.File({ filename: "logs/app.log" }),
+    ],
+});
 
 app.use(bodyParser.json()); // application/json
 

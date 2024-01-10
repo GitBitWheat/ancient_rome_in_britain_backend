@@ -4,6 +4,7 @@ networks:
     name: backnet
 volumes:
   mongodb_data:
+  images:
 
 services:
   db:
@@ -25,6 +26,8 @@ services:
       - db
     networks:
       - backnet
+    volumes:
+      - images:/app/images
 
   frontend:
     image: frontend:latest
