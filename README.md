@@ -25,7 +25,7 @@ There a 4 docker containers:
 
 All the containers share the same docker network. The only port that is exposed to the host is 443 of proxy, which is mapped to 443 of the host.
 
-# The routes of the backend node server:
+# The API of the Node.js backend server
 Here is the gist of the API of the backend server. Notice the nginx proxy maps routes that start with /actions/ to the backend server.
 
 With the following routes, you can read all items (GET), add an item (POST + JWT authorization), edit (PUT + JWT authorization) and delete (DELETE + JWT authorization):
