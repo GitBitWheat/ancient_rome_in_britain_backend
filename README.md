@@ -13,7 +13,7 @@ Done via docker-compose. 3 scripts are included that contain the docker-compose 
 <ul>
   <li>compose_build.sh: Build container images.</li>
   <li>compose_up.sh: Runs container images.</li>
-  <li>compose_up.sh: Stops container images.</li>
+  <li>compose_down.sh: Stops container images.</li>
 </ul>
 
 # Description of the Containers
